@@ -8,5 +8,6 @@
 #include "unistd.h"
 void print_type1(void);
 void print_type2(void);
+char *read_command(void);
 
 #endif
