@@ -6,5 +6,7 @@
 #include "string.h"
 #include "errno.h"
 #include "unistd.h"
+void print_type1(void);
+void print_type2(void);
 
 #endif
