@@ -7,7 +7,7 @@ int tok_bufferindex = -1;
 /*indicate end of input token*/
 struct token_s eof_token =
 {
-	.text_len = 0;
+	.text_len = 0
 };
 /**
  * add_to_buffer(char c) - adds a character to the buffer
@@ -39,7 +39,7 @@ void add_to_buffer(char c)
  */
 struct token_s *create_token(char *str)
 {
-	struct token_s *tok = malloc(sezeof(struct token_s));
+	struct token_s *tok = malloc(sizeof(struct token_s));
 
 	if (!tok)
 	{
@@ -70,9 +70,9 @@ struct token_s *create_token(char *str)
  */
 void free_token(struct token_s *tok)
 {
-	if (tok->next)
+	if (tok->text)
 	{
-		free(tok->next);
+		free(tok->text);
 	}
 	free(tok);
 }
@@ -86,7 +86,7 @@ struct token_s *tokenize(struct source_s *src)
 {
 	int endloop = 0;
 
-	if (!src || !src->buffer || !str->buffersize)
+	if (!src || !src->buffer || !src->buffersize)
 	{
 		errno = ENODATA;
 		return (&eof_token);
